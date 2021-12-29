@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="transactionType">
+        <item>交通出行</item>
+        <item>外出就餐</item>
+        <item>生活杂物</item>
+        <item>休闲/购物</item>
+        <item>医疗健康</item>
+        <item>教育支出</item>
+    </string-array>
+</resources>

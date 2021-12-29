@@ -16,6 +16,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:clickable="true"
+        android:onClick="createTransactions"
         android:tint="#FFFFFF"
         android:tintMode="multiply"
         app:backgroundTint="#E91E63"
@@ -57,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textColor="@color/black"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -64,7 +66,6 @@
             android:layout_width="391dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:background="#0003A9F4"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -77,6 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
+                    android:textColor="#00ff00"
                     android:textAlignment="center" />
 
                 <TextView
@@ -100,6 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
+                    android:textColor="#ff0000"
                     android:textAlignment="center" />
 
                 <TextView
@@ -120,7 +123,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#9BA7CF"
+        android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
