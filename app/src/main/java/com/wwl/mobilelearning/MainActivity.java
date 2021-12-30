@@ -2,11 +2,13 @@ package com.wwl.mobilelearning;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,8 +20,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     private Account account;
-    public List<Transaction> transactionList=new ArrayList<Transaction>();
+    private TransRecycleViewAdapter transRecycleViewAdapter;
+
     public Double asset,income,expence;
+    public List<Transaction> transactionList=new ArrayList<Transaction>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         UpdateAsset(rootView);
 
         RecyclerView transactionRecyclerView=this.findViewById(R.id.transactionRecycler);
+        LinearLayoutManager spinnerLayoutManager=new LinearLayoutManager(this.getApplicationContext());
+        transactionRecyclerView.setLayoutManager(spinnerLayoutManager);
+        //数据填充
+        transRecycleViewAdapter=new  TransRecycleViewAdapter(transactionList);
+        transactionRecyclerView.setAdapter(transRecycleViewAdapter);
 
         FloatingActionButton createTransactionButton=this.findViewById(R.id.floatingActionButton);
         createTransactionButton.setOnClickListener(new View.OnClickListener() {
@@ -72,5 +81,29 @@ public class MainActivity extends AppCompatActivity {
         assetView.setText(Double.toString(asset));
         incomeView.setText(Double.toString(income));
         expenceView.setText(Double.toString(expence));
+    }
+}
+
+public class TransRecycleViewAdapter extends RecyclerView.Adapter<TransRecycleViewAdapter.TransViewHolder>{
+    private List<Transaction> transactionList;
+    public TransRecycleViewAdapter(List<Transaction> transactionList){
+        this.transactionList=transactionList;
+    }
+
+    @Override
+    public int getItemCount(){
+        return transactionList.size();
+    }
+
+    public class TransViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener{
+        private final TextView typeName;
+        private final TextView name;
+        private final TextView price;
+
+
+        public TransViewHolder(View view){
+            super(view);
+
+        }
     }
 }
