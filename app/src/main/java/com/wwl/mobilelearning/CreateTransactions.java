@@ -36,7 +36,13 @@ public class CreateTransactions extends AppCompatActivity {
         //消费金额
         EditText price=findViewById(R.id.price);
         Double priceFromMain=intent.getDoubleExtra("price",0.0);
-        price.setText(priceFromMain.toString());
+        if(priceFromMain!=0.0)
+        {
+            price.setText(priceFromMain.toString());
+        }
+        else
+        {
+        }
 
         //确定按钮
         Button buttonOK=this.findViewById(R.id.ok);

@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
                 android:layout_weight="1"
-                android:text="消费金额" />
+                android:text="金额" />
 
             <EditText
                 android:id="@+id/price"
@@ -90,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="如为支出，请带负号(-)前缀"
                 android:inputType="textPersonName"
                 android:text="" />
         </LinearLayout>
