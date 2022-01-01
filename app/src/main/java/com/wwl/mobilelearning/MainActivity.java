@@ -162,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
             holder.nameView.setText(transaction.getName());
             holder.priceView.setText(Double.toString(transaction.getPrice()));
         }
-        public class TransViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
+        public class TransViewHolder extends RecyclerView.ViewHolder
+                implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
             private final TextView typeView;
             private final TextView nameView;
             private final TextView priceView;
@@ -180,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                //MenuItem addTab=contextMenu.add(Menu.NONE,MENU_ADD,MENU_ADD,"新增")
                 MenuItem editTab = contextMenu.add(Menu.NONE, MENU_EDIT, MENU_EDIT, "修改");
                 MenuItem deleteTab = contextMenu.add(Menu.NONE, MENU_DELETE, MENU_DELETE, "删除");
 
