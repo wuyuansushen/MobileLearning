@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CreateTransactions.class);
-                intent.putExtra("positionIndex", transactionList.size());
+                intent.putExtra("positionIndex", 0);
                 launcherAdd.launch(intent);
             }
         });

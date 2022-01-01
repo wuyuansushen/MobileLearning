@@ -18,7 +18,7 @@ public class CreateTransactions extends AppCompatActivity {
 
         //当前操作账单的索引
         Intent intent= getIntent();
-        int postionIndex=intent.getIntExtra("postionIndex",0);
+        int positionIndex=intent.getIntExtra("positionIndex",0);
 
         //账单类型
         Spinner typeSpinner=findViewById(R.id.transactionType);
@@ -50,7 +50,7 @@ public class CreateTransactions extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent returnToMain=new Intent();
-                returnToMain.putExtra("positionIndex",postionIndex);
+                returnToMain.putExtra("positionIndex",positionIndex);
                 returnToMain.putExtra("typeID",(int)typeSpinner.getSelectedItemId());
                 returnToMain.putExtra("name",name.getText().toString());
                 returnToMain.putExtra("price",Double.valueOf(price.getText().toString()));
