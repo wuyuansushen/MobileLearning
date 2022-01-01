@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public TransRecycleViewAdapter.TransViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        public TransViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
             View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_treansaction_holder,parent,false);
-            TransRecycleViewAdapter.TransViewHolder transHolder = new TransRecycleViewAdapter.TransViewHolder(holderView);
+            TransViewHolder transHolder = new TransViewHolder(holderView);
             return transHolder;
         }
 
@@ -175,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 typeView = (TextView) view.findViewById(R.id.typeView);
                 nameView = (TextView) view.findViewById(R.id.nameView);
                 priceView = (TextView) view.findViewById(R.id.priceView);
-
-                view.setOnCreateContextMenuListener(this);
+                view.setOnCreateContextMenuListener(this::onCreateContextMenu);
             }
 
             @Override
@@ -185,8 +184,8 @@ public class MainActivity extends AppCompatActivity {
                 MenuItem editTab = contextMenu.add(Menu.NONE, MENU_EDIT, MENU_EDIT, "修改");
                 MenuItem deleteTab = contextMenu.add(Menu.NONE, MENU_DELETE, MENU_DELETE, "删除");
 
-                editTab.setOnMenuItemClickListener(this);
-                deleteTab.setOnMenuItemClickListener(this);
+                editTab.setOnMenuItemClickListener(this::onMenuItemClick);
+                deleteTab.setOnMenuItemClickListener(this::onMenuItemClick);
             }
 
             @Override
@@ -203,23 +202,10 @@ public class MainActivity extends AppCompatActivity {
                         launcherEdit.launch(intent);
                         break;
                     case MENU_DELETE:
-                        AlertDialog.Builder alertDB = new AlertDialog.Builder(MainActivity.this);
-                        alertDB.setTitle("警告").show();
-                        alertDB.setMessage("确定删除该账单？");
-                        alertDB.setPositiveButton("是", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                transactionList.remove(positionIndex);
-                                account.saveAccount();
-                                UpdateAsset(getWindow().getDecorView().getRootView());
-                                TransRecycleViewAdapter.this.notifyItemRemoved(positionIndex);
-                            }
-                        });
-                        alertDB.setNegativeButton("否", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                            }
-                        });
+                        transactionList.remove(positionIndex);
+                        account.saveAccount();
+                        UpdateAsset(getWindow().getDecorView().getRootView());
+                        TransRecycleViewAdapter.this.notifyItemRemoved(positionIndex);
                         break;
                 }
                 return false;

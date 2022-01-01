@@ -7,10 +7,11 @@
 
     <TextView
         android:id="@+id/typeView"
-        android:layout_width="15dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#9F2F2F"
+        android:layout_weight=".25"
+        android:background="#FFFFFF"
+        android:padding="13dp"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -18,17 +19,19 @@
         android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#673AB7"
+        android:layout_weight=".5"
+        android:background="#FFFFFF"
+        android:padding="13dp"
         android:textAlignment="center"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/priceView"
-        android:layout_width="15dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#00BCD4"
+        android:layout_weight=".25"
+        android:background="#FFFFFF"
+        android:padding="13dp"
         android:textAlignment="center"
         android:textSize="20sp" />
 </LinearLayout>
